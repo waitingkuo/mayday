@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @ambulance.name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @ambulance.category %>
+</p>
+
+<p>
+  <b>Tel:</b>
+  <%= @ambulance.tel %>
+</p>
+
+<p>
+  <b>Traffic info:</b>
+  <%= @ambulance.traffic_info %>
+</p>
+
+<p>
+  <b>Display addr:</b>
+  <%= @ambulance.display_addr %>
+</p>
+
+<p>
+  <b>Poi addr:</b>
+  <%= @ambulance.poi_addr %>
+</p>
+
+<p>
+  <b>X:</b>
+  <%= @ambulance.x %>
+</p>
+
+<p>
+  <b>Y:</b>
+  <%= @ambulance.y %>
+</p>
+
+
+<%= link_to 'Edit', edit_ambulance_path(@ambulance) %> |
+<%= link_to 'Back', ambulances_path %>
