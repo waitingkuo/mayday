@@ -1,0 +1,35 @@
+<h1>Listing officers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Content</th>
+    <th>Traffic information</th>
+    <th>Display addr</th>
+    <th>Poi addr</th>
+    <th>X</th>
+    <th>Y</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @officers.each do |officer| %>
+  <tr>
+    <td><%= officer.name %></td>
+    <td><%= officer.content %></td>
+    <td><%= officer.traffic_information %></td>
+    <td><%= officer.display_addr %></td>
+    <td><%= officer.poi_addr %></td>
+    <td><%= officer.x %></td>
+    <td><%= officer.y %></td>
+    <td><%= link_to 'Show', officer %></td>
+    <td><%= link_to 'Edit', edit_officer_path(officer) %></td>
+    <td><%= link_to 'Destroy', officer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Officer', new_officer_path %>

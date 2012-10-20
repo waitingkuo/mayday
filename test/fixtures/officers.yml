@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  content: MyString
+  traffic_information: MyString
+  display_addr: MyString
+  poi_addr: MyString
+  x: 1.5
+  y: 1.5
+
+two:
+  name: MyString
+  content: MyString
+  traffic_information: MyString
+  display_addr: MyString
+  poi_addr: MyString
+  x: 1.5
+  y: 1.5

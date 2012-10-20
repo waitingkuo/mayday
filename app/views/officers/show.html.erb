@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @officer.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @officer.content %>
+</p>
+
+<p>
+  <b>Traffic information:</b>
+  <%= @officer.traffic_information %>
+</p>
+
+<p>
+  <b>Display addr:</b>
+  <%= @officer.display_addr %>
+</p>
+
+<p>
+  <b>Poi addr:</b>
+  <%= @officer.poi_addr %>
+</p>
+
+<p>
+  <b>X:</b>
+  <%= @officer.x %>
+</p>
+
+<p>
+  <b>Y:</b>
+  <%= @officer.y %>
+</p>
+
+
+<%= link_to 'Edit', edit_officer_path(@officer) %> |
+<%= link_to 'Back', officers_path %>

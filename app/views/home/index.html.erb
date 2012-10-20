@@ -1,0 +1,105 @@
+
+<div id="map_canvas" style="width:100%; height:100%"></div>
+
+<script type="text/javascript"
+  src="http://maps.googleapis.com/maps/api/js?sensor=false">
+</script>
+
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map_canvas { height: 100% }
+</style>
+
+<script>
+  function sleep( seconds ) {
+    var timer = new Date();
+    var time = timer.getTime();
+    do
+      timer = new Date();
+    while( (timer.getTime() - time) < (seconds * 10) );
+  }
+
+  var mapOptions = {
+    center: new google.maps.LatLng(25.057111, 121.614302),
+    zoom: 15,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("map_canvas"),
+      mapOptions);
+  var cur = new google.maps.LatLng(
+                                    lat=25.057111, 
+                                    lng=121.614302);
+  var markerOptions = {
+      icon: 'http://127.0.0.1:3000/assets/here.png',
+      map: map,
+      position: cur,
+  }
+  var marker = new google.maps.Marker(markerOptions);
+
+  var ambulances_str = $.ajax({url: 'http://127.0.0.1:3000/ambulances.json', async:false}).responseText;
+  var ambulances = $.parseJSON(ambulances_str);
+
+  coder = new google.maps.Geocoder();
+  for (index in ambulances) {
+    a = ambulances[index];
+    console.log(a['poi_addr']);
+    coder.geocode({
+        'address': a['poi_addr'],
+      }, 
+      function(result, status){
+        if (status == google.maps.GeocoderStatus.OK) {
+          var marker = new google.maps.Marker({
+            icon: 'http://127.0.0.1:3000/assets/ambulance.png',
+            map:map,
+            position: result[0].geometry.location,
+          });
+          console.log('ambulance ok')
+        }
+        else {
+          console.log('ambulance not ok');
+          console.log(status);
+        }
+      }
+    );
+  }
+
+  var officers_str = $.ajax({url: 'http://127.0.0.1:3000/officers.json', async:false}).responseText;
+  var officers = $.parseJSON(officers_str);
+
+  coder = new google.maps.Geocoder();
+  for (index in officers) {
+    a = officers[index];
+    console.log(a['poi_addr']);
+    coder.geocode({
+        'address': a['poi_addr'],
+      }, 
+      function(result, status){
+        if (status == google.maps.GeocoderStatus.OK) {
+          var marker = new google.maps.Marker({
+            icon: 'http://127.0.0.1:3000/assets/officer.png',
+            map:map,
+            position: result[0].geometry.location,
+          });
+          console.log('officer ok');
+        }
+        else {
+          console.log('officer not ok');
+          console.log(status);
+        }
+      }
+    );
+  }
+  
+  var helps_str = $.ajax({url: 'http://127.0.0.1:3000/helps.json', async:false}).responseText;
+  var helps = $.parseJSON(helps_str);
+  for (index in helps) {
+    a = helps[index];
+    var marker = new google.maps.Marker({
+      icon: 'http://127.0.0.1:3000/assets/help.png',
+      map:map,
+      position: new google.maps.LatLng(a['x'], a['y'])
+    });
+  }
+  
+</script>

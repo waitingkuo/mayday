@@ -1,0 +1,35 @@
+<h1>Listing police</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Content</th>
+    <th>Traffic information</th>
+    <th>Display addr</th>
+    <th>Poi addr</th>
+    <th>X</th>
+    <th>Y</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @police.each do |polouse| %>
+  <tr>
+    <td><%= polouse.name %></td>
+    <td><%= polouse.content %></td>
+    <td><%= polouse.traffic_information %></td>
+    <td><%= polouse.display_addr %></td>
+    <td><%= polouse.poi_addr %></td>
+    <td><%= polouse.x %></td>
+    <td><%= polouse.y %></td>
+    <td><%= link_to 'Show', polouse %></td>
+    <td><%= link_to 'Edit', edit_polouse_path(polouse) %></td>
+    <td><%= link_to 'Destroy', polouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Polouse', new_polouse_path %>

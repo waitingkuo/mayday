@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @help.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @help.description %>
+</p>
+
+<p>
+  <b>X:</b>
+  <%= @help.x %>
+</p>
+
+<p>
+  <b>Y:</b>
+  <%= @help.y %>
+</p>
+
+
+<%= link_to 'Edit', edit_help_path(@help) %> |
+<%= link_to 'Back', helps_path %>

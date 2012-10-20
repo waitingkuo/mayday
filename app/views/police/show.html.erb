@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @polouse.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @polouse.content %>
+</p>
+
+<p>
+  <b>Traffic information:</b>
+  <%= @polouse.traffic_information %>
+</p>
+
+<p>
+  <b>Display addr:</b>
+  <%= @polouse.display_addr %>
+</p>
+
+<p>
+  <b>Poi addr:</b>
+  <%= @polouse.poi_addr %>
+</p>
+
+<p>
+  <b>X:</b>
+  <%= @polouse.x %>
+</p>
+
+<p>
+  <b>Y:</b>
+  <%= @polouse.y %>
+</p>
+
+
+<%= link_to 'Edit', edit_polouse_path(@polouse) %> |
+<%= link_to 'Back', police_path %>
